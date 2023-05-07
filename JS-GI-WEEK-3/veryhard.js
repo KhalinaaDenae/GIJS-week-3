@@ -1,35 +1,45 @@
 function Person(name, job, age){
-    this.name = name
-    this.job = job
-    this.age = age 
-    }
+  this.name = name
+  this.job = job
+  this.age = age 
+  }
 Person.prototype.exercise = function(){
-    console.log("Running is fun!")
+  console.log("Running is fun!")
 }
 Person.prototype.fecthJob = function(){
-    console.log(this.name + " is a "+ this.job)
+  console.log(this.name + " is a "+ this.job)
 }
 
-   
 
-let programmer = new Programmer("John", "Software Engineer", 25, )
-programmer.languages = "Javascript"
-programmer.busy = true
-programmer.completeTask = function(){
-    programmer.busy = false
-}
-programmer.acceptNewTask = function(){
-    programmer.busy = true
-}
-programmer.offerNewTask = function(){
-  if(programmer.busy){
-    console.log(`${this.name}can't accept any new tasks right now`)
-  } else {
-    console.log(`${this.name} would love to take on a new responsibility.`)
-  }
-}
-programmer.learnLanguage = 
-programmer.listLanguage = function(languages){
-    console.log(this.languages)
+Person.prototype.isBusy = true
+
+
+Person.prototype.completeTask = function() {
+this.isBusy = false
 }
 
+Person.prototype.acceptNewTask = function() {
+ this.isBusy = true
+}
+
+Person.prototype.offerNewTask = function() {
+
+if (this.isBusy === true ){
+  console.log(`${this.name} can't accept any taks right now.` )
+} else {
+  console.log(`${this.name} is available to accept new tasks. `)
+}
+}
+
+Person.prototype.learnLanguage = function() {
+      console.log("C++", "Python")
+}
+
+Person.prototype.listLanguages = function() {
+  console.log(`${this.languages}`)
+}
+
+let programmer = new Person("John", "Software Engineer", 25)
+programmer.languages = "Python"
+programmer.isBusy = true
+console.log(programmer)
